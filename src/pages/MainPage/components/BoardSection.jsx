@@ -1,9 +1,15 @@
 import { useCallback } from "react";
 import { ticketsState } from "../../../contexts/TicketsContext";
-import { IconColors, PriorityIcons, StatusIcons } from "../../../utils/styleUtils";
+import {
+  IconColors,
+  PriorityIcons,
+  StatusIcons,
+} from "../../../utils/styleUtils";
 import Card from "../../../components/CardComponent/Card";
 import IconComponent from "../../../components/IconComponent/IconComponent";
 import UserAvatar from "../../../components/UserAvatar";
+import { BiPlus } from "react-icons/bi";
+import { BsThreeDots } from "react-icons/bs";
 
 const BoardSection = () => {
   const { state } = ticketsState();
@@ -25,7 +31,6 @@ const BoardSection = () => {
 
   const getBoardHeaderIcon = useCallback(
     (item_key) => {
-      console.log("users ", users, item_key);
       switch (currentGroup) {
         case "priority":
           return (
@@ -47,13 +52,25 @@ const BoardSection = () => {
       {Object.keys(groupedData)?.map((item_key, idx) => (
         <div className="board-section" key={item_key + idx}>
           <div className="board-section-header">
-            <div style={{ display: "flex", alignItems: "center", color: IconColors[item_key]??"" }}>
-              {getBoardHeaderIcon(item_key)}
+            <div className="board-section-header-left">
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: IconColors[item_key] ?? "",
+                }}
+              >
+                {getBoardHeaderIcon(item_key)}
+              </div>
+              <div className="board-section-header-title">
+                {getBoardTitle(item_key)}
+              </div>
+              <div>{groupedData[item_key].length}</div>
             </div>
-            <div className="board-section-header-title">
-              {getBoardTitle(item_key)}
+            <div className="board-section-header-right">
+              <BiPlus size="20"/>
+              <BsThreeDots />
             </div>
-            <div>{groupedData[item_key].length}</div>
           </div>
           <div className="board-section-tickets">
             {groupedData[item_key].map((ticket, idx) => (

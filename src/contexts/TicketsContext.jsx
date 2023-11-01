@@ -18,7 +18,6 @@ const mapUsers = (userData) => {
 };
 
 const handleGroupByTickets = (groupByKey, tickets) => {
-  console.log('group by key', groupByKey)
   const data = {};
   if (groupByKey === "user") groupByKey = "userId";
   tickets.forEach((ticket) => {
@@ -36,7 +35,6 @@ const ticketsReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TICKETS_AND_USERS": {
       let { tickets, users } = action.payload;
-      console.log('addding..', action.payload)
       return {
         ...state,
         tickets: tickets,

@@ -54,3 +54,9 @@
     height: 16px;
     
 }
+
+@media only screen and (max-width: 600px) {
+    .card-main {
+      width: 300px;
+    }
+  }

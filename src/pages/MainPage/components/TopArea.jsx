@@ -9,7 +9,6 @@ const TopArea = () => {
   const { groupBy, sortBy } = state;
 
   useEffect(() => {
-    console.log("group changed", state.groupBy);
     dispatch({ type: "GROUP_TICKETS" });
   }, [state.groupBy]);
 
@@ -35,6 +34,7 @@ const TopArea = () => {
                 onChange={(e) =>
                   dispatch({ type: "SET_GROUPBY", payload: e.target.value })
                 }
+                className="select-box"
               >
                 <option value="status">Status</option>
                 <option value="user">User</option>
@@ -48,6 +48,7 @@ const TopArea = () => {
                 onChange={(e) =>
                   dispatch({ type: "SET_SORTBY", payload: e.target.value })
                 }
+                className="select-box"
               >
                 <option value="priority">Priority</option>
                 <option value="title">Title</option>
