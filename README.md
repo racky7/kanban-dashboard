@@ -1,8 +1,23 @@
-# React + Vite
+# Kanban-Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kanban Dashboard UI using ReactJS
 
-Currently, two official plugins are available:
+Deployed URL - https://raj-kanban-dashboard.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/racky7/kanban-dashboard
+2. Navigate to the project's directory:
+
+   ```bash
+   cd kanban-dashboard
+3. Install dependencies:
+   ```bash
+   npm install
+4. To run the project locally:
+   ```bash
+   npm run dev
+   
