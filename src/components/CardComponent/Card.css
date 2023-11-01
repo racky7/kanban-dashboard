@@ -34,10 +34,23 @@
 
 .card-tag {
     padding: 4px;
-    border: 1px solid;
+    border: 0.5px solid;
     border-radius: 5px;
     width: fit-content;
+    height: fit-content;
     color: #84888D;
     border-color: lightgray;
-    font-size: small;
+    font-size: 14px;
+}
+
+.card-footer-icon {
+    border: 0.5px solid;
+    border-color: lightgray;
+    border-radius: 4px;
+    text-align: center;
+    align-content: center;
+    padding: 4px;
+    width: 16px;
+    height: 16px;
+    
 }

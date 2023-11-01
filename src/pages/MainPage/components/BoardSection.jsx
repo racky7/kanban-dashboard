@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { ticketsState } from "../../../contexts/TicketsContext";
-import { PriorityIcons, StatusIcons } from "../../../utils/styleUtils";
+import { IconColors, PriorityIcons, StatusIcons } from "../../../utils/styleUtils";
 import Card from "../../../components/CardComponent/Card";
 import IconComponent from "../../../components/IconComponent/IconComponent";
 import UserAvatar from "../../../components/UserAvatar";
@@ -47,7 +47,9 @@ const BoardSection = () => {
       {Object.keys(groupedData)?.map((item_key, idx) => (
         <div className="board-section" key={item_key + idx}>
           <div className="board-section-header">
-            <div>{getBoardHeaderIcon(item_key)}</div>
+            <div style={{ display: "flex", alignItems: "center", color: IconColors[item_key]??"" }}>
+              {getBoardHeaderIcon(item_key)}
+            </div>
             <div className="board-section-header-title">
               {getBoardTitle(item_key)}
             </div>
