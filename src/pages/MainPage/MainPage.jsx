@@ -4,17 +4,18 @@ import { ticketsState } from "../../contexts/TicketsContext";
 import BoardSection from "./components/BoardSection";
 import "./MainPage.css";
 
-const API_URL = "https://api.quicksell.co/v1/internal/frontend-assignment"
+const API_URL = "https://api.quicksell.co/v1/internal/frontend-assignment";
 
 const MainPage = () => {
-  const { dispatch } = ticketsState();
+  const { state, dispatch } = ticketsState();
 
   const fetchTickets = async () => {
-    const res = await fetch(API_URL)
+    const res = await fetch(API_URL);
     const data = await res.json();
     dispatch({ type: "ADD_TICKETS_AND_USERS", payload: data });
     dispatch({ type: "GROUP_TICKETS" });
-    dispatch({ type: "SORT_BY_PRIORITY" });
+    if (state.sortBy === "title") dispatch({ type: "SORT_BY_TITLE" });
+    else dispatch({ type: "SORT_BY_PRIORITY" });
   };
 
   useEffect(() => {

@@ -44,10 +44,7 @@ const ticketsReducer = (state, action) => {
     case "GROUP_TICKETS": {
       return {
         ...state,
-        groupedData: handleGroupByTickets(
-          state.groupBy,
-          state.tickets
-        ),
+        groupedData: handleGroupByTickets(state.groupBy, state.tickets),
       };
     }
     case "SORT_BY_PRIORITY": {
@@ -74,18 +71,18 @@ const ticketsReducer = (state, action) => {
         groupedData: sortedData,
       };
     }
-    case "SET_GROUPBY": 
-      return {...state, groupBy: action.payload}
+    case "SET_GROUPBY":
+      return { ...state, groupBy: action.payload };
     case "SET_SORTBY":
-      return {...state, sortBy: action.payload}
+      return { ...state, sortBy: action.payload };
     default:
       break;
   }
 };
 
 const initialValues = {
-  groupBy: "status",
-  sortBy: "priority",
+  groupBy: localStorage.getItem("groupBy") || "status",
+  sortBy: localStorage.getItem("orderBy") || "priority",
   tickets: [],
   users: [],
   priorities: priorityMap,

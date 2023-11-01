@@ -68,7 +68,7 @@ const BoardSection = () => {
               <div>{groupedData[item_key].length}</div>
             </div>
             <div className="board-section-header-right">
-              <BiPlus size="20"/>
+              <BiPlus size="20" />
               <BsThreeDots />
             </div>
           </div>

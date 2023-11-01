@@ -8,6 +8,16 @@ const TopArea = () => {
   const { state, dispatch } = ticketsState();
   const { groupBy, sortBy } = state;
 
+  const handleGroupChange = ({target: {value}}) => {
+    dispatch({ type: "SET_GROUPBY", payload: value})
+    localStorage.setItem("groupBy", value)
+  }
+
+  const handleOrderChange = ({target: {value}}) => {
+    dispatch({ type: "SET_SORTBY", payload: value })
+    localStorage.setItem("orderBy", value)
+  }
+
   useEffect(() => {
     dispatch({ type: "GROUP_TICKETS" });
   }, [state.groupBy]);
@@ -31,9 +41,7 @@ const TopArea = () => {
               <div>Grouping</div>
               <select
                 value={groupBy}
-                onChange={(e) =>
-                  dispatch({ type: "SET_GROUPBY", payload: e.target.value })
-                }
+                onChange={handleGroupChange}
                 className="select-box"
               >
                 <option value="status">Status</option>
@@ -45,9 +53,7 @@ const TopArea = () => {
               <div>Ordering</div>
               <select
                 value={sortBy}
-                onChange={(e) =>
-                  dispatch({ type: "SET_SORTBY", payload: e.target.value })
-                }
+                onChange={handleOrderChange}
                 className="select-box"
               >
                 <option value="priority">Priority</option>
