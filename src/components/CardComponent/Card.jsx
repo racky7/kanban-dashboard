@@ -2,6 +2,7 @@ import IconComponent from "../IconComponent/IconComponent";
 import { IconColors, PriorityIcons, StatusIcons } from "../../utils/styleUtils";
 import UserAvatar from "../UserAvatar";
 import "./Card.css";
+import { BsFillCircleFill } from "react-icons/bs";
 
 const Card = ({ ticket, currentGroup, priorities, users }) => {
   const { id, status, title, priority, tag, userId } = ticket;
@@ -42,7 +43,8 @@ const Card = ({ ticket, currentGroup, priorities, users }) => {
 
         {tag?.map((name, idx) => (
           <div key={name + idx} className="card-tag">
-            {name}{" "}
+             <BsFillCircleFill size="10" color="#BEC2C7" />{" "}
+            {name}
           </div>
         ))}
       </div>
