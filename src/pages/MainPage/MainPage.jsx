@@ -10,12 +10,16 @@ const MainPage = () => {
   const { state, dispatch } = ticketsState();
 
   const fetchTickets = async () => {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    dispatch({ type: "ADD_TICKETS_AND_USERS", payload: data });
-    dispatch({ type: "GROUP_TICKETS" });
-    if (state.sortBy === "title") dispatch({ type: "SORT_BY_TITLE" });
-    else dispatch({ type: "SORT_BY_PRIORITY" });
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      dispatch({ type: "ADD_TICKETS_AND_USERS", payload: data });
+      dispatch({ type: "GROUP_TICKETS" });
+      if (state.sortBy === "title") dispatch({ type: "SORT_BY_TITLE" });
+      else dispatch({ type: "SORT_BY_PRIORITY" });
+    } catch (error) {
+      alert(error);
+    }
   };
 
   useEffect(() => {
